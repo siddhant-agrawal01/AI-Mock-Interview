@@ -84,7 +84,7 @@
           "primaryKey": false,
           "notNull": true
         },
-        "correctAns": {
+        "Anscorrect": {
           "name": "correctAns",
           "type": "text",
           "primaryKey": false,
