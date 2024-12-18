@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Input } from "../../../components/ui/input";
-import { Textarea } from "../../../components/ui/textarea";
+import { Input } from "../../../../components/ui/input";
+import { Textarea } from "../../../../components/ui/textarea";
 import { v4 as uuidv4 } from "uuid";
 import {
   Dialog,
@@ -10,12 +10,12 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "../../../components/ui/dialog";
-import { Button } from "../../../components/ui/button";
-import { chatSession } from "./../../../utils/Gemni";
+} from "../../../../components/ui/dialog";
+import { Button } from "../../../../components/ui/button";
+import { chatSession } from "../../../../utils/Gemni";
 import { LoaderCircle } from "lucide-react";
-import { db } from "../../../utils/db";
-import { MockInterview } from "../../../utils/schema";
+import { db } from "../../../../utils/db";
+import { MockInterview } from "../../../../utils/schema";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment";
 import { useRouter } from "next/navigation";

@@ -1,4 +1,5 @@
 import AddNewInterview from "./_components/AddNewInterview";
+import InterviewList from "./_components/InterviewList";
 
 export default function Dashboard() {
   return (
@@ -11,6 +12,10 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3">
         <AddNewInterview />
       </div>
+      
+         <InterviewList />
+    
+
     </div>
   );
 }

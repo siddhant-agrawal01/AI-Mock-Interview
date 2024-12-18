@@ -1,10 +1,10 @@
 import { Mic, Webcam } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { Button } from "../../../../../../components/ui/button";
+import { Button } from "../../../../../../../components/ui/button";
 import useSpeechToText from "react-hook-speech-to-text";
 import { toast } from "sonner";
-import { chatSession } from "../../../../../../utils/Gemni";
+import { chatSession } from "../../../../../../../utils/Gemni";
 import { useUser } from "@clerk/nextjs";
 
 const RecordAnswerSection = ({

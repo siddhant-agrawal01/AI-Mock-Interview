@@ -84,12 +84,12 @@
 
 // export default Interview;
 import React, { useEffect, useState } from "react";
-import { MockInterview } from "../../../../utils/schema";
+import { MockInterview } from "../../../../../utils/schema";
 import { eq } from "drizzle-orm";
-import { db } from "../../../../utils/db";
+import { db } from "../../../../../utils/db";
 import Webcam from "react-webcam";
 import { Lightbulb, WebcamIcon } from "lucide-react";
-import { Button } from "../../../../components/ui/button";
+import { Button } from "../../../../../components/ui/button";
 import Link from "next/link";
 
 function Interview({ params }) {
