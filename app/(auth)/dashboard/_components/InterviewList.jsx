@@ -21,7 +21,7 @@ const InterviewList = () => {
       .from(MockInterview)
       .where(eq(MockInterview.createdBy, user?.primaryEmailAddress))
       .orderBy(desc(MockInterview.createdAt));
-    setInterviewList9(result);
+    setInterviewList(result);
   };
   return (
     <div>

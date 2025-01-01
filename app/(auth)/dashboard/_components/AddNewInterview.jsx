@@ -35,7 +35,7 @@ const AddNewInterview = () => {
     setLoading(true);
     e.preventDefault();
 
-    console.log(jobPosition, jobDesc, jobExperience);
+    // console.log(jobPosition, jobDesc, jobExperience);
 
     const InputPrompt =
       "Job position: " +
@@ -71,7 +71,7 @@ const AddNewInterview = () => {
         })
         .returning({ mockId: MockInterview.mockId });
 
-      console.log(response);
+      // console.log(response);
       if (response) {
         setOpenDialog(false);
         router.push("/dashboard/interview/" + response[0]?.mockId);

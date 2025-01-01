@@ -12,6 +12,7 @@
 // });
 
 import { pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
+import { integer, pgTable, timestamp } from 'drizzle-orm/pg-core';
 
 export const MockInterview = pgTable("mockInterview", {
   id: serial("id").primaryKey(),
@@ -34,4 +35,13 @@ export const UserAnswer = pgTable('userAnswer', {
   rating: varchar('rating'),
   userEmail: varchar('userEmail'),
   createdAt: varchar('createdAt')
+});
+
+
+export const Feedback = pgTable('feedback', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id').notNull(),
+  type: varchar('type', { length: 50 }).notNull(),
+  message: text('message').notNull(),
+  createdAt: timestamp('created_at', { precision: 6 }).defaultNow(),
 });

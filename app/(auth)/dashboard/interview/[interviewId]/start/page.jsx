@@ -18,13 +18,18 @@ const StartInterview = ({ params }) => {
   }, []);
 
   const GetInterviewDetails = async () => {
-    const result = await db
-      .select()
-      .from(MockInterview)
-      .where(eq(MockInterview.mockId, params.interviewId));
-    const jsonMockResp = JSON.parse(result[0].jsonMockResp);
-    setMockInterviewQuestions(jsonMockResp);
-    setInterviewData(result[0]);
+    try {
+      const result = await db
+        .select()
+        .from(MockInterview)
+        .where(eq(MockInterview.mockId, params.interviewId));
+      const jsonMockResp = result[0].jsonMockResp.replace(/[\u0000-\u001F\u007F-\u009F]/g, ""); // Sanitize JSON string
+      const parsedMockResp = JSON.parse(jsonMockResp);
+      setMockInterviewQuestions(parsedMockResp);
+      setInterviewData(result[0]);
+    } catch (error) {
+      console.error("Error parsing JSON:", error);
+    }
   };
   return (
     <div>

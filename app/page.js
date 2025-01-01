@@ -1,22 +1,64 @@
-  import Image from "next/image";
-  import Link from "next/link";
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import ThemeSwitcher from "../components/ThemeSwitch";
+import { cn } from "../lib/utils";
+import AnimatedGradientText from "../@/components/ui/animated-gradient-text";
+import animatedGrid from "../@/components/ui/animatedGrid";
+import AnimatedGridPattern from "../@/components/ui/animatedGrid";
+import { SparklesCore } from "../@/components/ui/sparkles";
+import { TypewriterEffectSmooth } from "../@/components/ui/typewriter-effect";
+import { WavyBackground } from "../@/components/ui/wavy-background";
+import { Cover } from "../@/components/ui/cover";
 
-  export default function Home() {
-    return (
-      <>
-        <header className="bg-blue-600 text-white p-4 shadow-md">
-          <div className="container mx-auto flex justify-between items-center">
-            <h1 className="text-2xl font-bold">AI Mock Interview</h1>
-            <nav>
-              <Link className="text-white hover:text-gray-200" href="/dashboard">
-                Dashboard
-              </Link>
-            </nav>
-          </div>
-        </header>
+import React from "react";
+
+const words = [
+  {
+    text: "Ace ",
+    className: " text-5xl dark:text-white",
+  },
+  {
+    text: " Your ",
+    className: " text-5xl dark:text-white",
+  },
+  {
+    text: " Interview",
+    className: " text-5xl dark:text-white",
+  },
+  {
+    text: " Before ",
+    className: " text-5xl dark:text-white",
+  },
+  {
+    text: " Interview.",
+    className: "text-blue-500 text-5xl dark:text-blue-500",
+  },
+];
+export default function GridBackgroundDemo() {
+  return (
+    <>
+      
+      <div className="h-[50rem] w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
+        {/* Radial gradient for the container to give a faded look */}
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+        <div className="flex justify-end top-0 right-0">
+        <ThemeSwitcher />
+        </div>
+        {/* <h1
+        className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
+     Mockster
+      </h1> */}
+
+        {/* <div className="flex flex-col items-center justify-center h-[40rem]">
+          <TypewriterEffectSmooth words={words} />
+        </div> */}
 
         <main className="container mx-auto p-4">
           <section className="text-center my-10">
+
+  
+
             <h2 className="text-4xl font-bold mb-4">
               Prepare for Your Dream Job
             </h2>
@@ -76,12 +118,7 @@
             </div>
           </section>
         </main>
-
-        <footer className="bg-gray-800 text-white p-4 mt-10">
-          <div className="container mx-auto text-center">
-            <p>&copy; 2023 AI Mock Interview. All rights reserved.</p>
-          </div>
-        </footer>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
+}
