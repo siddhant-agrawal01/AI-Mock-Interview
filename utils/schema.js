@@ -12,7 +12,7 @@
 // });
 
 import { pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
-import { integer, pgTable, timestamp } from 'drizzle-orm/pg-core';
+import { integer, timestamp } from 'drizzle-orm/pg-core';
 
 export const MockInterview = pgTable("mockInterview", {
   id: serial("id").primaryKey(),

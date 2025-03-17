@@ -6,7 +6,9 @@ import useSpeechToText from "react-hook-speech-to-text";
 import { toast } from "sonner";
 import { chatSession } from "../../../../../../../utils/Gemni";
 import { useUser } from "@clerk/nextjs";
-
+import { db } from "../../../../../../../utils/db";
+import { UserAnswer } from "../../../../../../../utils/schema";
+import moment from "moment";
 const RecordAnswerSection = ({
   mockInterviewQuestions,
   activeQuestionIndex,
@@ -35,16 +37,13 @@ const RecordAnswerSection = ({
     });
   }, [results]);
 
+ 
+  
   useEffect(() => {
     if (!isRecording && userAnswer.length > 10) {
       UpdateUserAnswer();
     }
-    // if (userAnswer?.length < 10) {
-    //   setLoading(false);
-
-    //   toast("error while saving you answer,please record again");
-    //   return;
-    // }
+    
   }, [userAnswer]);
 
   const StartStopRecording = async () => {
@@ -76,10 +75,10 @@ const RecordAnswerSection = ({
     // console.log(JSON.parse(mockJsonResp));
     const JsonFeedbackResp = JSON.parse(mockJsonResp);
 
-    const resp = await db.insert(UserAnswer).valuees({
+    const resp = await db.insert(UserAnswer).values({
       mockIdRef: interviewData?.mockId,
       question: mockInterviewQuestions[activeQuestionIndex]?.question,
-      answer: mockInterviewQuestions[activeQuestionIndex]?.answer,
+      correctAns: mockInterviewQuestions[activeQuestionIndex]?.answer,
       userAns: userAnswer,
       feedback: JsonFeedbackResp?.feedback,
       rating: JsonFeedbackResp?.rating,
@@ -106,7 +105,7 @@ const RecordAnswerSection = ({
           height={400}
         /> */}
         <Webcam
-          mirrored={true}
+          mirrored="true"
           style={{ zIndex: 10, height: 300, width: "100%" }}
         />
       </div>

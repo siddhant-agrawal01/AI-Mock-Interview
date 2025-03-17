@@ -97,59 +97,60 @@ const AddNewInterview = () => {
               Tell us more about your job
             </DialogTitle>
             <DialogDescription>
-              <form onSubmit={onSubmit}>
-                {" "}
-                <div>
-                  <h2>Add Details about your job,JOb description</h2>
-                  <div className="mt-7 my-3">
-                    <label>Job Role</label>
-                    <Input
-                      placeholder="Ex. Full stack developer"
-                      required
-                      onChange={(event) => setJobPosition(event.target.value)}
-                    />
-                  </div>
-                  <div className="my-3">
-                    <label>Tech Stack</label>
-                    <Textarea
-                      placeholder="Ex. React,nodejs"
-                      required
-                      onChange={(event) => setJobDesc(event.target.value)}
-                    />
-                  </div>
-                  <div className="my-3">
-                    <label>Years of Experience</label>
-                    <Input
-                      placeholder="Ex. 3"
-                      type="number"
-                      onChange={(event) => setJobExperience(event.target.value)}
-                      required
-                    />
-                  </div>
-
-                  <div className="flex justify-end gap-5">
-                    <Button
-                      onClick={() => setOpenDialog(true)}
-                      type="ghost"
-                      variant="ghost"
-                    >
-                      cancel
-                    </Button>
-                    <Button type="submit" disabled={loading}>
-                      {loading ? (
-                        <>
-                          <LoaderCircle className="animate-spin" />
-                          'Generating...'
-                        </>
-                      ) : (
-                        "Start Interview"
-                      )}
-                    </Button>
-                  </div>
-                </div>{" "}
-              </form>
+              Fill in the details about your job and job description
             </DialogDescription>
           </DialogHeader>
+
+          <form onSubmit={onSubmit}>
+            <div>
+              <h2>Add Details about your job, Job description</h2>
+              <div className="mt-7 my-3">
+                <label>Job Role</label>
+                <Input
+                  placeholder="Ex. Full stack developer"
+                  required
+                  onChange={(event) => setJobPosition(event.target.value)}
+                />
+              </div>
+              <div className="my-3">
+                <label>Tech Stack</label>
+                <Textarea
+                  placeholder="Ex. React,nodejs"
+                  required
+                  onChange={(event) => setJobDesc(event.target.value)}
+                />
+              </div>
+              <div className="my-3">
+                <label>Years of Experience</label>
+                <Input
+                  placeholder="Ex. 3"
+                  type="number"
+                  onChange={(event) => setJobExperience(event.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="flex justify-end gap-5">
+                <Button
+                  onClick={() => setOpenDialog(false)}
+                  type="button"
+                  variant="ghost"
+                >
+                  Cancel
+                </Button>
+                <Button type="submit" disabled={loading}>
+                  {loading ? (
+                    <>
+                      <LoaderCircle className="animate-spin" />
+                      Generating...
+                    </>
+                  ) : (
+                    "Start Interview"
+                  )}
+                </Button>
+              </div>
+            </div>
+          </form>
         </DialogContent>
       </Dialog>
     </div>
