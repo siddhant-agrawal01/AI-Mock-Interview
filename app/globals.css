@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 
-html {
+/* html {
   @apply bg-white text-black;
 }
 
 html.dark {
   @apply bg-gray-900 text-white;
-}
+} */
 
 .ripple {
   position: absolute;
@@ -22,7 +22,7 @@ html.dark {
 }
 
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -77,7 +77,7 @@ html.dark {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
+} */
 
 @layer base {
   * {
