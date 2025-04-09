@@ -82,7 +82,7 @@ const Feedback = ({ params }) => {
             ))}
         </>
       )}
-      <Button onclick={() => router.replace("/dashboard")}>Go Home</Button>
+      <Button onClick={() => router.replace("/dashboard")}>Go Home</Button>
     </div>
   );
 };
